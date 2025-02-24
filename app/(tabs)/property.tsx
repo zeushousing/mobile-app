@@ -1,69 +1,64 @@
 import React from "react";
-import { View, Text, TouchableOpacity, ScrollView, ToastAndroid } from "react-native";
+import { TouchableOpacity, ScrollView, ToastAndroid } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import BottomTabBar from "../../components/BottomTabBar";
+import { ThemedView } from "../../components/ThemedView";
+import { ThemedText } from "../../components/ThemedText";
 import tw from "../../lib/tw";
 
-const PropertyScreen = () => {
+export default function PropertyScreen() {
   return (
-    <SafeAreaView style={tw`flex-1 bg-white`}>
-      <View style={tw`px-4 py-2 flex-row justify-between items-center`}>
-        <Text style={tw`text-2xl font-bold`}>My properties</Text>
+    <SafeAreaView style={tw`flex-1`}>
+      <ThemedView style={tw`px-4 py-2 flex-row justify-between items-center`}>
+        <ThemedText type="title" style={tw`text-2xl font-bold`}>
+          My properties
+        </ThemedText>
         <TouchableOpacity
           style={tw`bg-yellow-400 px-4 py-2 rounded-full`}
           onPress={() => {
             /* Handle post navigation */
           }}
         >
-          <Text style={tw`font-semibold`}>+ Post</Text>
+          <ThemedText style={tw`font-semibold text-black`}>+ Post</ThemedText>
         </TouchableOpacity>
-      </View>
+      </ThemedView>
 
-      <View style={tw`flex-row space-x-2 px-4 py-2`}>
+      <ThemedView style={tw`flex-row space-x-2 px-4 py-2`}>
         <TouchableOpacity style={tw`bg-black px-6 py-2 rounded-full`}>
-          <Text style={tw`text-white`}>All</Text>
+          <ThemedText style={tw`text-white`}>All</ThemedText>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={tw`px-6 py-2 rounded-full border border-gray-200`}
-        >
-          <Text>Active</Text>
+        <TouchableOpacity style={tw`px-6 py-2 rounded-full border border-gray-200`}>
+          <ThemedText>Active</ThemedText>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={tw`px-6 py-2 rounded-full border border-gray-200`}
-        >
-          <Text>Inactive</Text>
+        <TouchableOpacity style={tw`px-6 py-2 rounded-full border border-gray-200`}>
+          <ThemedText>Inactive</ThemedText>
         </TouchableOpacity>
-      </View>
+      </ThemedView>
 
       <ScrollView style={tw`flex-1 px-4`}>
-        <View
-          style={tw`items-center justify-center py-12 bg-gray-100 rounded-lg mt-4`}
-        >
+        <ThemedView style={tw`items-center justify-center py-12 bg-yellow-100 rounded-lg mt-4`}>
           <MaterialCommunityIcons
             name="home-city-outline"
             size={48}
             color="gray"
           />
-          <Text style={tw`text-xl font-semibold mt-4`}>No property</Text>
-          <Text style={tw`text-gray-500 mt-2`}>
+          <ThemedText style={tw`text-xl font-semibold mt-4 text-black`}>
+            No property
+          </ThemedText>
+          <ThemedText style={tw`text-gray-500 mt-2`}>
             You don't have any property yet.
-          </Text>
+          </ThemedText>
           <TouchableOpacity
             style={tw`bg-yellow-400 px-6 py-3 rounded-full mt-6`}
             onPress={() => {
               /* Handle post property */
-              ToastAndroid.show("Property posted successfully", ToastAndroid.SHORT);
+              ToastAndroid.show("Property Posted successfully", ToastAndroid.SHORT);
             }}
           >
-            <Text style={tw`font-semibold`}>+ Post property</Text>
+            <ThemedText style={tw`font-semibold text-black`}>+ Post property</ThemedText>
           </TouchableOpacity>
-        </View>
+        </ThemedView>
       </ScrollView>
-
-     
     </SafeAreaView>
   );
-};
-
-export default PropertyScreen;
+}
