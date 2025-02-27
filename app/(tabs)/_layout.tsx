@@ -9,7 +9,7 @@ const tabs: Array<{
   icon: IconName;
   label: string;
 }> = [
-  { name: "search", icon: "magnify", label: "Search" },
+  { name: "index", icon: "magnify", label: "Search" },
   { name: "property", icon: "home", label: "Property" },
   { name: "post", icon: "plus", label: "Post" },
   { name: "chat", icon: "chat", label: "Chat" },
